@@ -32,9 +32,9 @@ import com.danvelazco.fbwrapper.R;
 import com.danvelazco.fbwrapper.util.Logger;
 
 /**
- * FacebookWebChromeClient.<br/> Extends {@link android.webkit.WebChromeClient}.<br/> Used by {@link FacebookWebView}.
+ * TinfoilWebChromeClient.<br/> Extends {@link android.webkit.WebChromeClient}.<br/> Used by {@link TinfoilWebView}.
  */
-public class FacebookWebChromeClient extends WebChromeClient {
+public class TinfoilWebChromeClient extends WebChromeClient {
 
     // Members
     private Context mContext = null;
@@ -52,7 +52,7 @@ public class FacebookWebChromeClient extends WebChromeClient {
      * @param context
      *         {@link Context}
      */
-    public FacebookWebChromeClient(Context context) {
+    public TinfoilWebChromeClient(Context context) {
         mContext = context;
     }
 

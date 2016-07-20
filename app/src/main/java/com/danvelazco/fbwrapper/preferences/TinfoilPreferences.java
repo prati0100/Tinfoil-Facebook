@@ -32,7 +32,7 @@ import com.danvelazco.fbwrapper.R;
  *
  * TODO: use fragments-based preferences activity
  */
-public class FacebookPreferences extends PreferenceActivity {
+public class TinfoilPreferences extends PreferenceActivity {
 
     // Custom preferences
     public final static String MENU_DRAWER_SHOWED_OPENED = "drawer_shown_opened";

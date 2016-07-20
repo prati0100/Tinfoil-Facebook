@@ -54,9 +54,9 @@ import com.danvelazco.fbwrapper.R;
 import com.danvelazco.fbwrapper.util.Logger;
 import com.danvelazco.fbwrapper.util.OrbotHelper;
 import com.danvelazco.fbwrapper.util.WebViewProxyUtil;
-import com.danvelazco.fbwrapper.webview.FacebookWebChromeClient;
-import com.danvelazco.fbwrapper.webview.FacebookWebView;
-import com.danvelazco.fbwrapper.webview.FacebookWebViewClient;
+import com.danvelazco.fbwrapper.webview.TinfoilWebChromeClient;
+import com.danvelazco.fbwrapper.webview.TinfoilWebView;
+import com.danvelazco.fbwrapper.webview.TinfoilWebViewClient;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -64,7 +64,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 /**
- * Base activity that uses a {@link FacebookWebView} to load the Facebook
+ * Base activity that uses a {@link TinfoilWebView} to load the Facebook
  * site in different formats. Here we can implement all the boilerplate code
  * that has to do with loading the activity as well as lifecycle events.
  * <p/>
@@ -72,12 +72,12 @@ import java.io.FileOutputStream;
  * See {@link #onWebViewInit(android.os.Bundle)}
  * See {@link #onResumeActivity()}
  */
-public abstract class BaseFacebookWebViewActivity extends Activity implements
-        FacebookWebViewClient.WebViewClientListener,
-        FacebookWebChromeClient.WebChromeClientListener {
+public abstract class BaseTinfoilWebViewActivity extends Activity implements
+        TinfoilWebViewClient.WebViewClientListener,
+        TinfoilWebChromeClient.WebChromeClientListener {
 
     // Constants
-    private final static String LOG_TAG = "BaseFacebookWebViewActivity";
+    private final static String LOG_TAG = "BaseTinfoilWebViewActivity";
     protected final static int RESULT_CODE_FILE_UPLOAD = 1001;
     protected final static int RESULT_CODE_FILE_UPLOAD_LOLLIPOP = 2001;
     protected static final String KEY_SAVE_STATE_TIME = "_instance_save_state_time";
@@ -108,7 +108,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
     // Members
     protected ConnectivityManager mConnectivityManager = null;
     protected CookieSyncManager mCookieSyncManager = null;
-    protected FacebookWebView mWebView = null;
+    protected TinfoilWebView mWebView = null;
     protected ProgressBar mProgressBar = null;
     protected WebSettings mWebSettings = null;
     protected ValueCallback<Uri> mUploadMessage = null;
@@ -139,7 +139,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
 
     /**
      * Called when we are ready to start restoring or loading
-     * data in the {@link FacebookWebView}
+     * data in the {@link TinfoilWebView}
      *
      * @param savedInstanceState {@link Bundle}
      */
@@ -163,7 +163,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
 
         mConnectivityManager = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
 
-        mWebView = (FacebookWebView) findViewById(R.id.webview);
+        mWebView = (TinfoilWebView) findViewById(R.id.webview);
         mWebView.setCustomContentView((FrameLayout) findViewById(R.id.fullscreen_custom_content));
         mWebView.setWebChromeClientListener(this);
         mWebView.setWebViewClientListener(this);
@@ -297,7 +297,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
     }
 
     /**
-     * Set a proxy for the {@link com.danvelazco.fbwrapper.webview.FacebookWebView}
+     * Set a proxy for the {@link com.danvelazco.fbwrapper.webview.TinfoilWebView}
      *
      * @param host {@link String}
      * @param port {@link int}
@@ -309,7 +309,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
     }
 
     /**
-     * Restore the state of the {@link FacebookWebView}
+     * Restore the state of the {@link TinfoilWebView}
      *
      * @param inState {@link Bundle}
      */
@@ -349,7 +349,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
     }
 
     /**
-     * Used to load a new URL in the {@link FacebookWebView}
+     * Used to load a new URL in the {@link TinfoilWebView}
      *
      * @param url {@link String}
      */
@@ -400,8 +400,8 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
     }
 
     /**
-     * Used to change to change the behaviour of the {@link FacebookWebView}<br/>
-     * By default, this {@link FacebookWebView} will only open URLs in which the
+     * Used to change to change the behaviour of the {@link TinfoilWebView}<br/>
+     * By default, this {@link TinfoilWebView} will only open URLs in which the
      * host is facebook.com, any other links should be sent to the default browser.<br/>
      * However, if the user wants to open the link inside this same webview, he could,
      * so in that case, make sure this flag is set to true.
@@ -701,7 +701,7 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
 
         @Override
         public void onBitmapFailed(Drawable drawable) {
-            Toast.makeText(BaseFacebookWebViewActivity.this, getString(R.string.txt_save_image_failed),
+            Toast.makeText(BaseTinfoilWebViewActivity.this, getString(R.string.txt_save_image_failed),
                     Toast.LENGTH_LONG).show();
         }
 
@@ -738,10 +738,10 @@ public abstract class BaseFacebookWebViewActivity extends Activity implements
         @Override
         protected void onPostExecute(Boolean result) {
             if (result) {
-                Toast.makeText(BaseFacebookWebViewActivity.this, getString(R.string.txt_save_image_success),
+                Toast.makeText(BaseTinfoilWebViewActivity.this, getString(R.string.txt_save_image_success),
                         Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(BaseFacebookWebViewActivity.this, getString(R.string.txt_save_image_failed),
+                Toast.makeText(BaseTinfoilWebViewActivity.this, getString(R.string.txt_save_image_failed),
                         Toast.LENGTH_LONG).show();
             }
         }

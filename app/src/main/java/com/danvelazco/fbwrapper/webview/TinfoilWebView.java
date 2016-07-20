@@ -29,7 +29,7 @@ import android.widget.FrameLayout;
  * Extends {@link android.webkit.WebView}.<br/>
  */
 @SuppressLint("SetJavaScriptEnabled")
-public class FacebookWebView extends WebView {
+public class TinfoilWebView extends WebView {
 
     // Constants, default values for this WebView's configuration
     final boolean DEFAULT_JS_ENABLED = true;
@@ -50,15 +50,15 @@ public class FacebookWebView extends WebView {
     private boolean mInitialized = false;
     private Context mContext = null;
     private WebSettings mWebSettings = null;
-    private FacebookWebViewClient mWebViewClient = null;
-    private FacebookWebChromeClient mWebChromeClient = null;
+    private TinfoilWebViewClient mWebViewClient = null;
+    private TinfoilWebChromeClient mWebChromeClient = null;
 
     /**
      * Constructor.
      *
      * @param context {@link Context}
      */
-    public FacebookWebView(Context context) {
+    public TinfoilWebView(Context context) {
         this(context, null);
     }
 
@@ -68,7 +68,7 @@ public class FacebookWebView extends WebView {
      * @param context {@link Context}
      * @param attrs   {@link AttributeSet}
      */
-    public FacebookWebView(Context context, AttributeSet attrs) {
+    public TinfoilWebView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -79,7 +79,7 @@ public class FacebookWebView extends WebView {
      * @param attrs    {@link AttributeSet}
      * @param defStyle {@link int}
      */
-    public FacebookWebView(Context context, AttributeSet attrs, int defStyle) {
+    public TinfoilWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
         // Do not try to initialize anything if it's in edit mode (layout editor)
@@ -119,11 +119,11 @@ public class FacebookWebView extends WebView {
      */
     private void initializeWebView() {
         // Create a new instance of FutebolWebViewClient and keep a reference to it
-        mWebViewClient = new FacebookWebViewClient();
+        mWebViewClient = new TinfoilWebViewClient();
         setWebViewClient(mWebViewClient);
 
         // New instance of FutebolWebChromeClient and keep a reference to it
-        mWebChromeClient = new FacebookWebChromeClient(mContext);
+        mWebChromeClient = new TinfoilWebChromeClient(mContext);
         setWebChromeClient(mWebChromeClient);
 
         // Get a reference of this WebView's WebSettings
@@ -189,10 +189,10 @@ public class FacebookWebView extends WebView {
     /**
      * Set the listener for this WebChromeClient.
      *
-     * @param listener {@link FacebookWebChromeClient.WebChromeClientListener}. It must be
+     * @param listener {@link TinfoilWebChromeClient.WebChromeClientListener}. It must be
      *                 in the Activity context.
      */
-    public void setWebChromeClientListener(FacebookWebChromeClient.WebChromeClientListener listener) {
+    public void setWebChromeClientListener(TinfoilWebChromeClient.WebChromeClientListener listener) {
         if (!mInitialized || (mWebChromeClient == null)) {
             throw new IllegalStateException("The WebView must be initialized first.");
         }
@@ -217,10 +217,10 @@ public class FacebookWebView extends WebView {
     /**
      * Set the listener for this WebViewClient.
      *
-     * @param listener {@link FacebookWebViewClient.WebViewClientListener}. It must be
+     * @param listener {@link TinfoilWebViewClient.WebViewClientListener}. It must be
      *                 in the Activity context.
      */
-    public void setWebViewClientListener(FacebookWebViewClient.WebViewClientListener listener) {
+    public void setWebViewClientListener(TinfoilWebViewClient.WebViewClientListener listener) {
         if (!mInitialized || (mWebViewClient == null)) {
             throw new IllegalStateException("The WebView must be initialized first.");
         }

@@ -26,11 +26,11 @@ import android.webkit.WebViewClient;
 import com.danvelazco.fbwrapper.util.Logger;
 
 /**
- * FacebookWebViewClient.<br/>
+ * TinfoilWebViewClient.<br/>
  * Extends {@link android.webkit.WebViewClient}.<br/>
- * Used by {@link FacebookWebView}.
+ * Used by {@link TinfoilWebView}.
  */
-public class FacebookWebViewClient extends WebViewClient {
+public class TinfoilWebViewClient extends WebViewClient {
 
     // Members
     private WebViewClientListener mListener = null;

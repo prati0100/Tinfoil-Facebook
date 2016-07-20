@@ -43,7 +43,7 @@
         android:theme="@style/Theme.Tinfoil">
 
         <activity
-            android:name="com.danvelazco.fbwrapper.FbWrapper"
+            android:name=".TinfoilWrapper"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="standard"
             android:windowSoftInputMode="adjustResize"
@@ -131,13 +131,13 @@
         </activity>
 
         <activity
-            android:name=".preferences.FacebookPreferences"
+            android:name=".preferences.TinfoilPreferences"
             android:label="@string/app_name"
             android:theme="@style/Theme.Tinfoil.Preferences"
-            android:parentActivityName="com.danvelazco.fbwrapper.FbWrapper">
+            android:parentActivityName=".TinfoilWrapper">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.danvelazco.fbwrapper.FbWrapper" />
+                android:value=".TinfoilWrapper" />
         </activity>
 
     </application>
